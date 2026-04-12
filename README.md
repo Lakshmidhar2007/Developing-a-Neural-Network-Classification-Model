@@ -67,6 +67,11 @@ class PeopleClassifier(nn.Module):
         
 # Initialize the Model, Loss Function, and Optimizer
 
+model = PeopleClassifier(input_size=X_train.shape[1])
+criterion = nn.CrossEntropyLoss()
+optimizer = optim.Adam(model.parameters(),lr=0.001)
+
+
 def train_model(model, train_loader, criterion, optimizer, epochs):
   model.train()
   for epoch in range(epochs):
